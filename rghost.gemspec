@@ -3,7 +3,7 @@
 #
 Gem::Specification.new do |s|
   s.name      = "rghost"
-  s.version = "0.9.4"
+  s.version = "0.9.7"
   s.authors = ["Shairon Toledo"]
   s.email     = "shairon.toledo@gmail.com"
   s.homepage = "http://rghost.rubyforge.org"
@@ -146,7 +146,8 @@ Gem::Specification.new do |s|
     "lib/rghost/variable.rb",
     "lib/rghost/vertical_line.rb",
     "lib/rghost/virtual_pages.rb",
-    "lib/rghost.rb"
+    "lib/rghost.rb",
+    'lib/rghost/merge_pdfs.rb'
   ]
   s.require_path      = "lib"
 end

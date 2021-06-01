@@ -52,11 +52,9 @@ class RGhost::Engine
     params << "-sstdout=#{shellescape(file_err)}"
     params << "-sOutputFile=#{shellescape(file_out)}"
     params << @options[:raw] if @options[:raw]
-
-
     case @document
     when RGhost::Document
-      file_in="#{tmp_filename}.rgin"
+      file_in = shellescape("#{tmp_filename}.rgin")
       params.concat @document.gs_paper
       mode=external_encoding.nil? ? 'w' : "w:#{external_encoding}"
       fi=File.open(file_in,mode)
@@ -66,12 +64,14 @@ class RGhost::Engine
       file_in=@document.path
       #@delete_input=false unless @options[:debug]
     when String
-      file_in=@document
+      file_in = shellescape(@document)
+    when Array
+      file_in = @document.map{|d| shellescape(d) }.join(' ')
     else
       raise RuntimeError.new("Cannot convert #{@document.class}. Supported classes are RGhost::Document or File or String.")
     end
 
-    params << shellescape(file_in)
+    params << file_in
 
     if RGhost::Config::GS[:mode] == :gslib
       require "rghost/rgengine"

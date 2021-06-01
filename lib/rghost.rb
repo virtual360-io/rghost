@@ -12,7 +12,8 @@ require 'rghost/variable'
 require 'rghost/ps_facade'
 require 'rghost/function'
 require 'rghost/document'
-require 'rghost/grid/grid'  
+require 'rghost/merge_pdfs'
+require 'rghost/grid/grid'
 RGhost::Config::GS[:PATH]="/opt/local/bin/gs"
 
 
