@@ -51,6 +51,7 @@ class RGhost::Engine
     end
     params << "-sstdout=#{shellescape(file_err)}"
     params << "-sOutputFile=#{shellescape(file_out)}"
+    params << "-dNOSAFER"
     params << @options[:raw] if @options[:raw]
     case @document
     when RGhost::Document
